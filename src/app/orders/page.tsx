@@ -69,7 +69,6 @@ const OrdersPage = () => {
   }
 
   if (!data || !Array.isArray(data)) {
-    // Handle empty or invalid data state here
     return <Loading />;
   }
 

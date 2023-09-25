@@ -3,8 +3,8 @@ import { ProductType } from "@/types/types";
 import Image from "next/image";
 import React from "react";
 
-const getData = async (id: string) => {
-  const res = await fetch(`http://localhost:3000/api/products/${id}`, {
+const getData = async (slug: string) => {
+  const res = await fetch(`http://localhost:3000/api/products/${slug}`, {
     cache: "no-store",
   });
   if (!res.ok) {
@@ -13,11 +13,11 @@ const getData = async (id: string) => {
   return res.json();
 };
 
-const SingleProductPage = async ({ params }: { params: { id: string } }) => {
-  const singleProduct: ProductType = await getData(params.id);
+const SingleProductPage = async ({ params }: { params: { slug: string } }) => {
+  const singleProduct: ProductType = await getData(params.slug);
   return (
     <>
-      <div className="flex flex-col lg:flex-row items-center justify-around mb-10">
+      <div className="flex flex-col lg:flex-row items-center justify-around mb-10 h-screen">
         {singleProduct.img && (
           <div className="flex items-center justify-center">
             <Image
@@ -26,7 +26,7 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
               title={singleProduct.title}
               width={500}
               height={500}
-              className="cursor-pointer hover:scale-105 duration-500 w-1/2 lg:w-full h-full"
+              className="cursor-pointer hover:scale-90 duration-500 w-full h-full"
             />
           </div>
         )}
@@ -35,7 +35,7 @@ const SingleProductPage = async ({ params }: { params: { id: string } }) => {
             {singleProduct.title}
           </h1>
           <p>{singleProduct.desc}</p>
-          <Price price={singleProduct.price} id={singleProduct.id} />
+          <Price product={singleProduct} />
         </div>
       </div>
     </>

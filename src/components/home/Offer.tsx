@@ -1,6 +1,7 @@
 import dynamic from "next/dynamic";
 import Image from "next/image";
 import React from "react";
+import Button from "../utils/Button";
 const CountDown = dynamic(() => import("../utils/CountDown"), { ssr: false });
 
 const Offer = () => {
@@ -13,9 +14,7 @@ const Offer = () => {
           repudiandae suscipit, ad quibusdam aut
         </p>
         <CountDown />
-        <button className="bg-amber-500 py-3 px-6 hover:scale-110 duration-500">
-          Order now
-        </button>
+        <Button title="Order Now" />
       </div>
       <div className="relative flex-1 w-full md:h-full">
         <Image

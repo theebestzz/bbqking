@@ -6,11 +6,24 @@ export const GET = async (req: NextRequest) => {
   const cat = searchParams.get("cat");
 
   try {
-    const products = await prisma.product.findMany({
-      where: {
-        ...(cat ? { catSlug: cat } : { isFeatured: true }),
-      },
-    });
+    let products;
+
+    if (cat) {
+      products = await prisma.product.findMany({
+        where: {
+          catSlug: cat,
+        },
+        // take: 6, // Burada sadece 6 öğe çekilecek.
+      });
+    } else {
+      products = await prisma.product.findMany({
+        where: {
+          isFeatured: true,
+        },
+        // take: 6, // Burada sadece 6 öğe çekilecek.
+      });
+    }
+
     return new NextResponse(JSON.stringify(products), { status: 200 });
   } catch (error) {
     console.log(error);
@@ -20,6 +33,7 @@ export const GET = async (req: NextRequest) => {
     );
   }
 };
+
 export const POST = () => {
   return new NextResponse("Hello", { status: 200 });
 };

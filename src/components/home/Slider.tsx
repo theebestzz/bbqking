@@ -2,6 +2,7 @@
 
 import React, { useEffect, useState } from "react";
 import Image from "next/image";
+import Button from "../utils/Button";
 const data = [
   {
     id: 1,
@@ -41,9 +42,7 @@ const Slider = () => {
         <h1 className="sm:text-xl md:text-5xl xl:text-6xl text-center uppercase p-4 md:p-10">
           {data[currentSlide].title}
         </h1>
-        <button className="bg-main text-white md:text-xl text-sm py-2 px-4 md:py-4 md:px-8 hover:bg-amber-500 hover:text-main hover:scale-105 duration-500 shadow-md shadow-main/50">
-          Order Now
-        </button>
+        <Button title="Order Now" />
       </div>
       <div className="w-full h-1/2 relative lg:h-full lg:w-1/2">
         <Image

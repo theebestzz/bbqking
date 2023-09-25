@@ -10,6 +10,7 @@ export type MenuType = {
 export type ProductType = {
   id: string;
   title: string;
+  slug: string;
   desc?: string;
   img?: string;
   price: number;

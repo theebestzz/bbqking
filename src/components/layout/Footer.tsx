@@ -8,6 +8,39 @@ import {
 } from "react-icons/ri";
 import Image from "next/image";
 
+const paymentMethods = [
+  {
+    id: 1,
+    name: "Visa",
+    image: "/visa.svg",
+  },
+  {
+    id: 2,
+    name: "Mastercard",
+    image: "/mastercard.svg",
+  },
+  {
+    id: 3,
+    name: "Paypal",
+    image: "/paypal.svg",
+  },
+  {
+    id: 4,
+    name: "Stripe",
+    image: "/stripe.svg",
+  },
+  {
+    id: 5,
+    name: "Google Pay",
+    image: "/google-pay.svg",
+  },
+  {
+    id: 6,
+    name: "Apple Pay",
+    image: "/apple-pay.svg",
+  },
+];
+
 const Footer = () => {
   return (
     <>
@@ -19,37 +52,29 @@ const Footer = () => {
                 Social
               </h4>
               <ul className="text-xs lg:text-sm flex flex-col space-y-3 lg:space-y-3.5">
-                <li className="flex items-baseline gap-2 hover:text-amber-500">
+                <li className="flex items-baseline gap-2 hover:text-amber-500 duration-500">
                   <span className="relative top-0.5 lg:top-1 text-sm lg:text-base">
                     <RiInstagramFill />
                   </span>
-                  <Link className="transition-colors duration-200" href="/">
-                    Instagram
-                  </Link>
+                  <Link href="/">Instagram</Link>
                 </li>
-                <li className="flex items-baseline gap-2 hover:text-amber-500">
+                <li className="flex items-baseline gap-2 hover:text-amber-500 duration-500">
                   <span className="relative top-0.5 lg:top-1 text-sm lg:text-base">
                     <RiTwitterFill />
                   </span>
-                  <Link className="transition-colors duration-200" href="/">
-                    Twitter
-                  </Link>
+                  <Link href="/">Twitter</Link>
                 </li>
-                <li className="flex items-baseline gap-2 hover:text-amber-500">
+                <li className="flex items-baseline gap-2 hover:text-amber-500 duration-500">
                   <span className="relative top-0.5 lg:top-1 text-sm lg:text-base">
                     <RiFacebookBoxFill />
                   </span>
-                  <Link className="transition-colors duration-200" href="/">
-                    Facebook
-                  </Link>
+                  <Link href="/">Facebook</Link>
                 </li>
-                <li className="flex items-baseline gap-2 hover:text-amber-500">
+                <li className="flex items-baseline gap-2 hover:text-amber-500 duration-500">
                   <span className="relative top-0.5 lg:top-1 text-sm lg:text-base">
                     <RiYoutubeFill />
                   </span>
-                  <Link className="transition-colors duration-200" href="/">
-                    Youtube
-                  </Link>
+                  <Link href="/">Youtube</Link>
                 </li>
               </ul>
             </div>
@@ -60,33 +85,24 @@ const Footer = () => {
               <ul className="text-xs lg:text-sm flex flex-col space-y-3 lg:space-y-3.5">
                 <li className="flex items-baseline">
                   <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
+                    className="duration-500 hover:text-amber-500"
                     href="/contact"
                   >
                     Contact Us
                   </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
-                    href="/"
-                  >
+                  <Link className="duration-500 hover:text-amber-500" href="/">
                     yourexample@email.com
                   </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
-                    href="/"
-                  >
+                  <Link className="duration-500 hover:text-amber-500" href="/">
                     example@email.com
                   </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
-                    href="/"
-                  >
+                  <Link className="duration-500 hover:text-amber-500" href="/">
                     Call us: +1 254 568-5479
                   </Link>
                 </li>
@@ -99,33 +115,27 @@ const Footer = () => {
               <ul className="text-xs lg:text-sm flex flex-col space-y-3 lg:space-y-3.5">
                 <li className="flex items-baseline">
                   <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
+                    className="duration-500 hover:text-amber-500"
                     href="/contact"
                   >
                     Support Center
                   </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
-                    href="/"
-                  >
+                  <Link className="duration-500 hover:text-amber-500" href="/">
                     Customer Support
                   </Link>
                 </li>
                 <li className="flex items-baseline">
                   <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
+                    className="duration-500 hover:text-amber-500"
                     href="/contact"
                   >
                     About Us
                   </Link>
                 </li>
                 <li className="flex items-baseline">
-                  <Link
-                    className="transition-colors duration-200 hover:text-amber-500"
-                    href="/"
-                  >
+                  <Link className="duration-500 hover:text-amber-500" href="/">
                     Copyright
                   </Link>
                 </li>
@@ -138,7 +148,7 @@ const Footer = () => {
             <p className="text-xs lg:text-sm">
               Copyright &nbsp;
               <Link
-                className="font-semibold text-gray-700 transition-colors duration-200 ease-in-out"
+                className="font-semibold text-gray-700 duration-500 ease-in-out"
                 href="/"
               >
                 TMK
@@ -146,66 +156,22 @@ const Footer = () => {
               &nbsp;
             </p>
             <ul className="flex-wrap items-center justify-center flex mx-auto mb-1 gap-x-4 xs:gap-x-5 lg:gap-x-7 md:mb-0 md:mx-0">
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/visa.svg"
-                  alt="Visa"
-                  title="Visa"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/mastercard.svg"
-                  alt="Mastercard"
-                  title="Mastercard"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/paypal.svg"
-                  alt="Paypal"
-                  title="Paypal"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/stripe.svg"
-                  alt="Stripe"
-                  title="Stripe"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/google-pay.svg"
-                  alt="Google Pay"
-                  title="Google Pay"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
-              <li className="mb-2 transition md:mb-0 hover:opacity-80 duration-500">
-                <Image
-                  src="/apple-pay.svg"
-                  alt="Apple Pay"
-                  title="Apple Pay"
-                  height={20}
-                  width={50}
-                  className="w-auto h-12"
-                />
-              </li>
+              {paymentMethods.map((method) => (
+                <li
+                  className="mb-2 transition md:mb-0 hover:opacity-80 duration-500"
+                  key={method.id}
+                >
+                  <Image
+                    src={method.image}
+                    alt={method.name}
+                    title={method.name}
+                    height={20}
+                    width={50}
+                    className="w-auto h-12"
+                    priority={true}
+                  />
+                </li>
+              ))}
             </ul>
           </div>
         </div>

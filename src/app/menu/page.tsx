@@ -1,4 +1,5 @@
 import { MenuType } from "@/types/types";
+import { shimmer, toBase64 } from "@/utils/image";
 import Image from "next/image";
 import Link from "next/link";
 import React from "react";

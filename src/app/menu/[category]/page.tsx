@@ -30,7 +30,7 @@ const CategoryPage = async ({ params }: Props) => {
           {products.map((item) => (
             <Link
               className="w-full h-[60vh] border-r-2 border-b-2 border-main sm:w-1/2 lg:w-1/3 p-4 flex flex-col justify-between group odd:bg-amber-500"
-              href={`/product/${item.id}`}
+              href={`/product/${item.slug}`}
               key={item.id}
             >
               {item.img && (
@@ -41,7 +41,7 @@ const CategoryPage = async ({ params }: Props) => {
                     title={item.title}
                     width={500}
                     height={500}
-                    className="object-contain w-full h-full"
+                    className="object-contain w-full h-full hover:scale-105 duration-500"
                   />
                 </div>
               )}

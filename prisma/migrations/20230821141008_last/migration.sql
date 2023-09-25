@@ -68,6 +68,7 @@ CREATE TABLE "Product" (
     "isFeatured" BOOLEAN NOT NULL DEFAULT false,
     "options" JSONB[],
     "catSlug" TEXT NOT NULL,
+    "slug" TEXT NOT NULL,
 
     CONSTRAINT "Product_pkey" PRIMARY KEY ("id")
 );
@@ -102,6 +103,9 @@ CREATE UNIQUE INDEX "VerificationToken_identifier_token_key" ON "VerificationTok
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Category_slug_key" ON "Category"("slug");
+
+-- CreateIndex
+CREATE UNIQUE INDEX "Product_slug_key" ON "Product"("slug");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "Order_intent_id_key" ON "Order"("intent_id");

@@ -1,44 +1,47 @@
 "use client";
 
+import { ProductType } from "@/types/types";
 import React, { useEffect, useState } from "react";
 import { AiFillCaretRight } from "react-icons/ai";
 import { LiaCartPlusSolid } from "react-icons/lia";
 
 type Props = {
   price: number;
-  id: string;
+  slug: string;
   options?: { title: string; additionalPrice: number }[];
 };
 
-const Price = ({ price, id, options }: Props) => {
-  const [total, setTotal] = useState(price);
+const Price = ({ product }: { product: ProductType }) => {
+  const [total, setTotal] = useState(product.price);
   const [quantity, setQuantity] = useState(1);
   const [selected, setSelected] = useState(0);
 
   useEffect(() => {
-    setTotal(
-      quantity *
-        (options?.length ? price + options[selected].additionalPrice : price)
-    );
-  }, [quantity, selected, options, price]);
+    if (product.options?.length) {
+      setTotal(
+        quantity * product.price + product.options[selected].additionalPrice
+      );
+    }
+  }, [quantity, selected, product]);
 
   return (
     <div className="flex flex-col gap-4 mt-5">
       <h2 className="text-2xl font-bold">${total}</h2>
-      <div className="flex md:flex-row gap-4">
-        {options?.map((option, index) => (
-          <button
-            key={option.title}
-            className="p-2 rounded-full"
-            style={{
-              background: selected === index ? "rgb(245 158 11)" : "black",
-              color: selected === index ? "black" : "white",
-            }}
-            onClick={() => setSelected(index)}
-          >
-            {option.title}
-          </button>
-        ))}
+      <div className="flex items-center justify-center md:flex-row gap-4">
+        {product.options?.length &&
+          product.options.map((option, index) => (
+            <button
+              key={option.title}
+              className="p-2 rounded-full uppercase"
+              style={{
+                background: selected === index ? "rgb(245 158 11)" : "black",
+                color: selected === index ? "black" : "white",
+              }}
+              onClick={() => setSelected(index)}
+            >
+              {option.title}
+            </button>
+          ))}
       </div>
       <div className="flex flex-col gap-5 items-center mt-2">
         <div className="flex items-center">
